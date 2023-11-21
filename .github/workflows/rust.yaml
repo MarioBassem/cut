@@ -4,10 +4,16 @@ jobs:
   clippy_check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        name: Checkout code
+        with:
+          fetch-depth: 1
+
       - uses: actions-rs/cargo@v1
         name: Run clippy
         with:
           command: clippy
+          
       - uses: actions-rs/cargo@v1
         name: Build
         with:
